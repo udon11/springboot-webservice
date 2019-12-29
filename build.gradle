@@ -32,6 +32,7 @@ repositories {  // 각종 의존성(라이브러리)들을 어떤 원격 저장�
 dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는곳
                 // !!주의!! 특정 버전을 명시하지 않아야만 위에 작성한 "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}" 버전을 따라간다
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     // 기존코드 //testCompile group: 'junit', name: 'junit', version: '4.12'
 }
