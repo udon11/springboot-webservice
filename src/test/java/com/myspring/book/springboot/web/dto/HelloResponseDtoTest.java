@@ -1,7 +1,7 @@
 package com.myspring.book.springboot.web.dto;
 
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;   // 스태틱으로 추가
 
 public class HelloResponseDtoTest {
 

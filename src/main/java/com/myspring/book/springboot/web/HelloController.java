@@ -14,7 +14,7 @@ public class HelloController {
     }
 
     @GetMapping("/hello/dto")
-    public HelloResponseDto helloDto(@RequestParam("name") String name, @RequestParam("amount") int amount){
+    public HelloResponseDto helloDto(@RequestParam("name") String name, @RequestParam("amount") int amount){    //@RequestParam 외부에서 api로 넘긴 파라미터를 가져온다
         return  new HelloResponseDto(name,amount);
     }
 }
