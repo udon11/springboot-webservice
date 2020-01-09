@@ -36,4 +36,9 @@ public class Posts {    //실제 db테이블과 연결될 클래스 Entity클래
         this.content = content;
         this.author = author;
     }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
