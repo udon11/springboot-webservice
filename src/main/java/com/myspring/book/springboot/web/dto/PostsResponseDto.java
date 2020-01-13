@@ -1,7 +1,9 @@
 package com.myspring.book.springboot.web.dto;
 
 import com.myspring.book.springboot.domain.posts.Posts;
+import lombok.Getter;
 
+@Getter // getter 없어서 p.118 실패했었음
 public class PostsResponseDto {
 
     private Long id;

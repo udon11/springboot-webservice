@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-@RequiredArgsConstructor    // final선언된애들 생성자
+@RequiredArgsConstructor    // final선언된애들 생성자 생성
 @Service
 public class PostsService {
     private final PostsRepository postsRepository;
@@ -21,7 +21,7 @@ public class PostsService {
     }
 
     @Transactional
-    public Long update(Long id, PostsUpdateRequestDto requestDto){
+    public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 사용자가 없습니다. id="+ id));
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
