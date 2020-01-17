@@ -2,6 +2,7 @@ package com.myspring.book.springboot.domain.posts;
 
 
 import com.myspring.book.springboot.service.PostsService;
+import com.myspring.book.springboot.web.dto.PostsUpdateRequestDto;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -60,13 +61,13 @@ public class PostsRepositoryTest {  // save, findAll 기능을 테스트한다.
                 .content("content")
                 .author("author")
                 .build());
-
        //when
         List<Posts> postsList = postsRepository.findAll();
 
         //then
         Posts posts = postsList.get(0);
         System.out.println(">>>>>>>>>> createDate="+posts.getCreatedDate()+", modifiedDate="+posts.getModifiedDate());
+        System.out.println(posts.getId()+"=============="+posts.getTitle());
 
         assertThat(posts.getCreatedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
