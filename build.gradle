@@ -40,5 +40,8 @@ dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는�
     compile('org.springframework.boot:spring-boot-starter-mustache')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')   // p.179
+
     // 기존코드 //testCompile group: 'junit', name: 'junit', version: '4.12'
 }
