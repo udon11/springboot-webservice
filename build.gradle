@@ -20,9 +20,9 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management' //스프링 부트의 의존성들을 관리해 주는 플러그인
 
 group 'com.myspring.book'
-version '1.0-SNAPSHOT'
-
+version '1.0.4-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
 sourceCompatibility = 1.8
+
 
 repositories {  // 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지를 정한다.
     mavenCentral()  //기본적으로 mavenCentral 많이사용했지만 '라이브러리업로드난이도' 때문에 jcenter도 많이 사용
@@ -39,9 +39,9 @@ dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는�
 
     compile('org.springframework.boot:spring-boot-starter-mustache')
 
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
 
-    compile('org.springframework.boot:spring-boot-starter-oauth2-client')   // p.179
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 
     // 기존코드 //testCompile group: 'junit', name: 'junit', version: '4.12'
 }
