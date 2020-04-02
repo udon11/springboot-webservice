@@ -39,7 +39,9 @@ dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는�
 
     compile('org.springframework.boot:spring-boot-starter-mustache')
 
-    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')   // 소셜로그인
+
+    compile('org.springframework.session:spring-session-jdbc')  //세션저장소 db로
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
