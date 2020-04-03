@@ -1,9 +1,13 @@
 package com.myspring.book.springboot.web;
 
+import com.myspring.book.springboot.config.auth.SecurityConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -17,12 +21,17 @@ SpringRunner 라는 스프링 실행자를 사용한다
 !!스프링 부트 테스트와 JUnit 사이에 연결자 역할을 한다
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest // p.
+@WebMvcTest(controllers =  HelloController.class, // p. && p.220
+    excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+    }
+)
 public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;    // 웹 api를 테스트 할때 사용한다   //스프링 MVC 테스트의 시작점  //이 클래스를 통해서 HTTP GET, POST 등에 대한 API테스트를 할수 있다.
 
+    @WithMockUser(roles="USER")
     @Test
     public void hello가_리턴된다() throws Exception{
         String hello = "hello";
@@ -36,6 +45,7 @@ public class HelloControllerTest {
                                                         //Controller에서 "hello"를 리턴하기때문에 이 값이 맞는지 검증한다.
     }
 
+    @WithMockUser(roles="USER")
     @Test
     public void helloDto가_리턴된다() throws Exception{
         String name = "hello";
