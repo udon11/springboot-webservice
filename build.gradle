@@ -43,6 +43,8 @@ dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는�
 
     compile('org.springframework.session:spring-session-jdbc')  //세션저장소 db로
 
+    compile('org.mariadb.jdbc:mariadb-java-client')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
     // 기존코드 //testCompile group: 'junit', name: 'junit', version: '4.12'
