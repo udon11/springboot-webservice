@@ -17,6 +17,23 @@ cache:
 #master 브랜치에 푸시되었을때 수행하는 명령어
 script: "./gradlew clean build"
 
+#S3이용
+before_deploy:
+  - zip -r springboot-webservice *
+  - mkdir -p deploy
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY #트레비스에 설정된값
+    secret_access_key: $AWS_SECRET_KEY #트레비스에 설정된값
+    bucket: my-springboot2-build # S3버킷
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip 파일 접근을 private로
+    local_dir: deploy # before_deploy에서 생성한 디렉토리
+    wait-until-deploy: true
+
 # CI 실행완료시 메일로 알람
 notifications:
   email:
