@@ -38,7 +38,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: my-springboot2-build
-    key: my-springboot2-webservice.zip #빌드 파일 압축해서 전달
+    key: springboot-webservice.zip #빌드 파일 압축해서 전달
     bundle_type: zip #압축 확장자
     application: my-springboot2-webservice # 웹 콘솔에서 등록 한 CodeDeploy 애플리케이션
     deployment_group: my-springboot2-webservice-group # '' 배포그룹
