@@ -22,3 +22,7 @@ notifications:
   email:
     recipients:
       udon1@naver.com
+
+#  권한주는거
+before_install:
+  chmod +x gradlew
